@@ -74,11 +74,11 @@ const CreatePost = () => {
   return (
     <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <h2 className="text-2xl font-bold text-center">Create a new Post</h2>
+        <h2 className="text-2xl font-bold text-center">Créer un nouveau Post</h2>
         <div className="flex flex-col">
           <label htmlFor="file-upload" className="cursor-pointer bg-blue-500 text-white rounded-md px-4 py-2 text-center hover:bg-blue-600 transition duration-200 flex justify-center items-center gap-2">
             <FiUpload />
-            Upload Image
+            Télécharger une image          
           </label>
           <input id="file-upload" type="file" onChange={handleFileChange} className="hidden" accept="image/*" />
         </div>
@@ -86,7 +86,7 @@ const CreatePost = () => {
           type="text"
           value={caption}
           onChange={handleCaptionChange}
-          placeholder="Enter a caption..."
+          placeholder="Entrez une légende..."
           className="input input-bordered w-full p-2 border-gray-300 rounded"
         />
         <button

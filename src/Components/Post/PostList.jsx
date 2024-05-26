@@ -16,11 +16,11 @@ const PostList = () => {
           id: doc.id,
           ...data,
           timestamp: data.timestamp ? data.timestamp.toDate() : new Date(),
-          likedBy: data.likedBy || [],  // S'assurer que likedBy est toujours un tableau
-          comments: data.comments || []  // S'assurer que comments est toujours un tableau
+          likedBy: data.likedBy || [],  
+          comments: data.comments || []  
         };
       });
-      setPosts(postsData.sort((a, b) => b.timestamp - a.timestamp));  // Trier les posts par date décroissante
+      setPosts(postsData.sort((a, b) => b.timestamp - a.timestamp)); 
     };
 
     fetchPosts();

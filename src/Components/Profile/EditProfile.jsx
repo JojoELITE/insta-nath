@@ -73,7 +73,7 @@ const EditProfile = () => {
                               value={bio} 
                               onChange={(e) => setBio(e.target.value)} />
                 </div>
-                <button className="w-full flex justify-center items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-150 ease-in-out" 
+                <button className="" 
                         type="submit" 
                         disabled={loading}>
                     <MdUpdate className="mr-2"/>

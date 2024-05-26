@@ -51,12 +51,12 @@ const AvatarUpload = () => {
     <div className='flex flex-col justify-center items-center'>
       <label htmlFor="avatar-upload" className='mb-2 cursor-pointer flex flex-col items-center'>
         <AiOutlineCloudUpload className='text-3xl' />
-        <span className='ml-2'>Choose Avatar</span>
+        <span className='ml-2'>Choisir un Avatar</span>
       </label>
       <input id="avatar-upload" type="file" onChange={handleUploadStart} className='hidden' />
-      <button onClick={handleUploadSuccess} className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 flex items-center'>
+      <button onClick={handleUploadSuccess} className='bg-blue-500 transform hover:rotate-12 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 flex items-center'>
         <AiOutlineCheckCircle className='text-xl' />
-        <span className='ml-2'>Update Avatar</span>
+        <span className='ml-2'>Mettre à jour</span>
       </button>
       {message && <p className='text-red-500 text-sm font-bold mt-2'>{message}</p>}
     </div>

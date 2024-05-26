@@ -4,7 +4,7 @@ import { doc, updateDoc, arrayUnion, arrayRemove, deleteDoc, addDoc, collection 
 import { useAuth } from '../../contexts/AuthContext';
 import { FaComments } from 'react-icons/fa';
 import AvatarDisplay from '../Profile/AvatarDisplay';
-import CommentPopup from '../Comments/CommentPopup'; 
+import CommentPopup from '../Comments/CommentPopup';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Post = ({ id, photoURL, caption, likedBy, userId, timestamp }) => {
@@ -13,7 +13,7 @@ const Post = ({ id, photoURL, caption, likedBy, userId, timestamp }) => {
     const { currentUser } = useAuth();
     const [error, setError] = useState('');
     const [comment, setComment] = useState('');
-    const [showComments, setShowComments] = useState(false); 
+    const [showComments, setShowComments] = useState(false);
 
     const toggleLike = async () => {
         if (!currentUser) {
@@ -84,35 +84,37 @@ const Post = ({ id, photoURL, caption, likedBy, userId, timestamp }) => {
             <img src={photoURL} alt="Post" className="w-full h-auto mt-3" />
             <div className="py-2 ">
                 <p>{caption}</p>
-                <p className="text-gray-500 text-sm mt-1">Posted at {timestamp.toDateString()} {timestamp.toLocaleTimeString()}</p>
+                <p className="text-gray-500 text-sm mt-1">Post ajouté {timestamp.toDateString()} {timestamp.toLocaleTimeString()}</p>
                 <div className="flex items-center justify-between mt-2">
                     <button onClick={toggleLike} disabled={!currentUser} className={`p-2 ${isLiked ? 'text-red-500' : 'text-gray-500'}`}>
-                        {isLiked ? '❤️' : '👍'} Like
+                        {isLiked ? '❤️' : '🤍'} J'aime
                     </button>
                     {currentUser && currentUser.uid === userId && (
                         <button onClick={deletePost} className="p-2 text-red-600 animate-bounce ease-in-out duration-300 relative">
-                            <span className="text-1xl text-red-600" title="Delete Post"> 
+                            <span className="text-1xl text-red-600" title="Supprimer le Post">
                                 <FaTrashAlt className="text-red-600" />
-                             </span>
+                            </span>
                         </button>
                     )}
-                    <span>{likes} Likes</span>
+                    <span>{likes} J'aime</span>
                 </div>
                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                 <div>
                     <form onSubmit={handleCommentSubmit} className="mt-2">
                         <input
                             type="text"
-                            placeholder="Add a comment..."
+                            placeholder="Ajouter un commentaire..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             className="input input-bordered w-full"
                         />
-                        <button type="submit" className="btn btn-sm mt-2 shadow bg-blue-500 text-slate-100 hover:text-black font-bold">Comment</button>
+
+                        <button type="submit" className="btn btn-sm mt-2 shadow bg-blue-500 text-slate-100 hover:text-black font-bold">Commenter</button>
+
                     </form>
                 </div>
                 <div className=" flex justify-end">
-                    <button onClick={() => setShowComments(true)} className="text-blue-500 cursor-pointer border-spacing-2 font-bold flex gap-2 items-center"><FaComments className="inline-block hover:text-yellow-500"/>View Comments</button>
+                    <button onClick={() => setShowComments(true)} className="text-blue-500 cursor-pointer border-spacing-2 font-bold flex gap-2 items-center"><FaComments className="inline-block hover:text-yellow-500" />Voir les Commentaires</button>
                     {showComments && <CommentPopup postId={id} setShowComments={setShowComments} />}
                 </div>
             </div>

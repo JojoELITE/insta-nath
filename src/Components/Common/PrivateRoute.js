@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
 
   // If the authentication state is still loading, you can return a loading indicator or null to wait
   if (isLoading) {
-    return <div>Loading...</div>; // Or some other loading indicator
+    return <div>Chargement...</div>; // Or some other loading indicator
   }
 
   // Redirect to login if not authenticated
